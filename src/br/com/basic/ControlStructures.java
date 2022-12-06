@@ -40,6 +40,6 @@ public class ControlStructures {
 
         int age = 10;
 
-        System.out.println(age >=18 ? "age > 18" : "age < 18");
+        System.out.println(age >= 18 ? "age > 18" : "age < 18");
     }
 }

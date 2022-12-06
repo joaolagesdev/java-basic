@@ -28,7 +28,7 @@ public class Operators {
 
         boolean a = true;
         boolean b = false;
-        result = a|| b;
+        result = a || b;
         System.out.println(result);
     }
 }

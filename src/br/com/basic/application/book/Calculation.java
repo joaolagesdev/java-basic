@@ -2,15 +2,15 @@ package br.com.basic.application.book;
 
 public class Calculation {
 
-    private Book book;
+    private Calculation() {}
 
-    public Calculation(Book book) {
-        this.book = book;
-    }
-
-    public double priceIncrease (final double percentage) {
+    public static double priceIncrease (final Book book, final double percentage) {
         book.priceIncrease(percentage);
         return book.getPrice();
     }
 
+    public static double priceDecrease (final Book book, final double percentage) {
+        book.priceDecrease(percentage);
+        return book.getPrice();
+    }
 }

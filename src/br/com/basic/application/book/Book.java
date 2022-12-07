@@ -47,7 +47,7 @@ public class Book {
         return price;
     }
 
-    public void setPrice(double price) {
+    private void setPrice(double price) {
         this.price = price;
     }
 
@@ -61,6 +61,10 @@ public class Book {
 
     protected void priceIncrease(final double percentage) {
         price += price * percentage;
+    }
+
+    protected void priceDecrease(final double percentage) {
+        price -= price * percentage;
     }
 
     @Override

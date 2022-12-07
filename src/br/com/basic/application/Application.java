@@ -4,26 +4,20 @@ import br.com.basic.application.book.Book;
 import br.com.basic.application.book.Calculation;
 
 public class Application {
+
+    private static final double PERCENTAGE_INCREASE = 0.3;
+
+    private static final double PERCENTAGE_DECREASE = 0.5;
+
     public static void main(String[] args) {
-        Book book = new Book();
-        book.setTitle("Java 8");
-        book.setAuthor("James Carter");
-        book.setPages(230);
-        book.setPrice(80d);
 
-        System.out.println("Title: " + book.getTitle());
-        System.out.println("Price: " + book.getPrice());
-
-        // book.priceIncrease(0.1);
-        System.out.println("New Price: " + book.getPrice());
-
+        Book book = new Book("Java 11", "Joseph Climber", "Tech", 25.90, 270);
         System.out.println(book);
 
-        Book newBook = new Book("Java 11", "Joseph Climber", "Tech", 25.90, 270);
-        System.out.println(newBook);
+        Calculation.priceIncrease(book, PERCENTAGE_INCREASE);
+        System.out.println("Increase: " + book.getPrice());
 
-        Calculation calculation = new Calculation(newBook);
-        calculation.priceIncrease(0.5);
-        System.out.println(newBook);
+        Calculation.priceDecrease(book, PERCENTAGE_DECREASE);
+        System.out.println("Decrease: " + book.getPrice());
     }
 }

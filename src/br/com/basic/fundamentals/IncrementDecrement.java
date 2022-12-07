@@ -1,4 +1,4 @@
-package br.com.basic;
+package br.com.basic.fundamentals;
 
 public class IncrementDecrement {
 

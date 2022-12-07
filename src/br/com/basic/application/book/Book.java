@@ -1,6 +1,17 @@
-package br.com.basic.application;
+package br.com.basic.application.book;
 
 public class Book {
+
+    public Book() {
+    }
+
+    public Book(String title, String author, String publishingCompany, double price, int pages) {
+        this.title = title;
+        this.author = author;
+        this.publishingCompany = publishingCompany;
+        this.price = price;
+        this.pages = pages;
+    }
 
     private String title;
     private String author;
@@ -48,7 +59,7 @@ public class Book {
         this.pages = pages;
     }
 
-    public void priceIncrease(final double percentage) {
+    protected void priceIncrease(final double percentage) {
         price += price * percentage;
     }
 

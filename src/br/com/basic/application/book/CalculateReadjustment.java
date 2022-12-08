@@ -1,8 +1,8 @@
 package br.com.basic.application.book;
 
-public class Calculation {
+public class CalculateReadjustment {
 
-    private Calculation() {}
+    private CalculateReadjustment() {}
 
     public static double priceIncrease (final Book book, final double percentage) {
         book.priceIncrease(percentage);

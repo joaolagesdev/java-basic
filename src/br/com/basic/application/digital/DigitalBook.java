@@ -19,17 +19,13 @@ public class DigitalBook extends Book {
 
     @Override
     protected void priceIncrease(double percentage) {
-        System.out.println(getClass().getSimpleName() + ": " + percentage);
         double newPercentage = percentage + VIRTUAL_RATE;
-        System.out.println(getClass().getSimpleName() + ": " + newPercentage);
         setPrice(getPrice() + getPrice() * newPercentage);
     }
 
     @Override
     protected void priceDecrease(double percentage) {
-        System.out.println(getClass().getSimpleName() + ": " + percentage);
         double newPercentage = percentage + VIRTUAL_RATE;
-        System.out.println(getClass().getSimpleName() + ": " + newPercentage);
         setPrice(getPrice() - getPrice() * newPercentage);
     }
 

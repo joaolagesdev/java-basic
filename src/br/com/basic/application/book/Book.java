@@ -1,9 +1,6 @@
 package br.com.basic.application.book;
 
-public class Book {
-
-    public Book() {
-    }
+public abstract class Book {
 
     public Book(String title, String author, String publishingCompany, double price, int pages) {
         this.title = title;
@@ -39,17 +36,19 @@ public class Book {
         return price;
     }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public int getPages() {
         return pages;
     }
 
-    protected void priceIncrease(final double percentage) {
-        price += price * percentage;
-    }
+    public abstract String getBookCover();
 
-    protected void priceDecrease(final double percentage) {
-        price -= price * percentage;
-    }
+   protected abstract void priceIncrease(final double percentage);
+
+    protected abstract void priceDecrease(final double percentage);
 
     @Override
     public String toString() {

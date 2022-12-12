@@ -1,15 +1,17 @@
 package br.com.basic.application.book;
 
-public class CalculateReadjustment {
+public class CalculateReadjustment implements Calculation {
 
-    private CalculateReadjustment() {}
+    public CalculateReadjustment() {}
 
-    public static double priceIncrease (final Book book, final double percentage) {
+    @Override
+    public double priceIncrease (final Book book, final double percentage) {
         book.priceIncrease(percentage);
         return book.getPrice();
     }
 
-    public static double priceDecrease (final Book book, final double percentage) {
+    @Override
+    public double priceDecrease (final Book book, final double percentage) {
         book.priceDecrease(percentage);
         return book.getPrice();
     }

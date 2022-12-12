@@ -2,6 +2,7 @@ package br.com.basic.application;
 
 import br.com.basic.application.book.Book;
 import br.com.basic.application.book.CalculateReadjustment;
+import br.com.basic.application.book.Calculation;
 import br.com.basic.application.digital.DigitalBook;
 import br.com.basic.application.physical.PhysicalBook;
 
@@ -15,21 +16,21 @@ public class Application {
 
         Book digitalBook = new DigitalBook("Java 11", "Joseph Climber", "Tech Java", 89.90, 270, "qrCode");
         Book physicalBook = new PhysicalBook("JavaScript", "John Carter", "Tech JS", 129.90, 190);
+        Calculation calculation = new CalculateReadjustment();
 
         System.out.println(digitalBook);
-
-        CalculateReadjustment.priceIncrease(digitalBook, PERCENTAGE_INCREASE);
+        calculation.priceIncrease(digitalBook, PERCENTAGE_INCREASE);
         System.out.println("Increase: " + digitalBook.getPrice());
 
-        CalculateReadjustment.priceDecrease(digitalBook, PERCENTAGE_DECREASE);
+        calculation.priceDecrease(digitalBook, PERCENTAGE_DECREASE);
         System.out.println("Decrease: " + digitalBook.getPrice());
 
         System.out.println(physicalBook);
 
-        CalculateReadjustment.priceIncrease(physicalBook, PERCENTAGE_INCREASE );
+        calculation.priceIncrease(physicalBook, PERCENTAGE_INCREASE );
         System.out.println("Increase: " + physicalBook.getPrice());
 
-        CalculateReadjustment.priceDecrease(physicalBook, PERCENTAGE_DECREASE);
+        calculation.priceDecrease(physicalBook, PERCENTAGE_DECREASE);
         System.out.println("Decrease: " + physicalBook.getPrice());
     }
 }

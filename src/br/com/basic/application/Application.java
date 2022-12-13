@@ -6,9 +6,7 @@ import br.com.basic.application.book.CalculateReadjustment;
 import br.com.basic.application.book.Calculation;
 import br.com.basic.application.digital.DigitalBook;
 import br.com.basic.application.exceptions.CalculateNotFoundException;
-import br.com.basic.application.physical.PhysicalBook;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Application {
@@ -22,6 +20,7 @@ public class Application {
         System.out.println("Hello, enter 1 for readjustment calculation or 2 for discount: ");
 
         try {
+
             int option = readKeyboard();
 
             Calculation calculation = null;
@@ -35,6 +34,7 @@ public class Application {
             if (calculation != null) {
 
                 Book digitalBook = new DigitalBook("Java 11", "Joseph Climber", "Tech Java", 89.90, 270, "qrCode");
+
                 System.out.println("Book price: " + digitalBook.getPrice());
 
                 if (option == 1) {

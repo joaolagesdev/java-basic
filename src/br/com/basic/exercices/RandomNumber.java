@@ -12,7 +12,7 @@ public class RandomNumber {
         System.out.print("Hello, type any number on the keyboard: ");
         int number = readKeyboard();
 
-        System.out.println(compareNumberWithRandomNumber(randomNumber,number));
+        System.out.println(compareNumberWithRandomNumber(randomNumber, number));
     }
 
     public static int readKeyboard() throws NumberFormatException {

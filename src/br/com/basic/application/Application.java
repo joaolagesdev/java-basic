@@ -17,6 +17,7 @@ public class Application {
 
     public static void main(String[] args) {
 
+        // FIXME Change the user interface: get Books or calculate readjustment
         System.out.println("Hello, enter 1 for readjustment calculation or 2 for discount: ");
 
         try {

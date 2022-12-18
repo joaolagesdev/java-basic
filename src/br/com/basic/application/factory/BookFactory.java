@@ -1,5 +1,6 @@
 package br.com.basic.application.factory;
 
+import br.com.basic.application.datasource.BookCSVDataSource;
 import br.com.basic.application.datasource.IBookDataSource;
 
 public class BookFactory {
@@ -10,8 +11,7 @@ public class BookFactory {
      */
     public static IBookDataSource createBookFactory(final SourceBookEnum sourceBookEnum) {
         if (sourceBookEnum.equals(SourceBookEnum.CSV)) {
-            //TODO Implement CSV
-            return null;
+            return new BookCSVDataSource();
         } else if (sourceBookEnum.equals(SourceBookEnum.DATABASE)) {
             // TODO Implement Database
             return null;

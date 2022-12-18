@@ -4,8 +4,11 @@ import br.com.basic.application.book.Book;
 import br.com.basic.application.book.CalculateDiscount;
 import br.com.basic.application.book.CalculateReadjustment;
 import br.com.basic.application.book.Calculation;
+import br.com.basic.application.datasource.IBookDataSource;
 import br.com.basic.application.digital.DigitalBook;
 import br.com.basic.application.exceptions.CalculateNotFoundException;
+import br.com.basic.application.factory.BookFactory;
+import br.com.basic.application.factory.SourceBookEnum;
 
 import java.util.Scanner;
 
@@ -17,9 +20,18 @@ public class Application {
 
     public static void main(String[] args) {
 
-        // FIXME Change the user interface: get Books or calculate readjustment
-        System.out.println("Hello, enter 1 for readjustment calculation or 2 for discount: ");
+        System.out.print("Hello, enter 1 for readjustment calculation or 2 for discount: ");
+        int option = readKeyboard();
 
+        if (option == 1) {
+            IBookDataSource bookFactory = BookFactory.createBookFactory(SourceBookEnum.CSV);
+            bookFactory.getBooks();
+        } else if (option == 2) {
+            calculatePriceChange();
+        }
+    }
+
+    private static void calculatePriceChange() {
         try {
 
             int option = readKeyboard();

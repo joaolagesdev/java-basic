@@ -9,7 +9,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class BookCSVDataSource implements IBookDataSource {
 
@@ -21,11 +23,11 @@ public class BookCSVDataSource implements IBookDataSource {
 
     @Override
     public List<Book> getBooks() {
-        List<Book> books = new ArrayList<>();
-        Path csvFilePath = Paths.get(System.getProperty("user.dir") + BOOKS_CSV);
+        var books = new ArrayList<Book>();
+        var csvFilePath = Paths.get(System.getProperty("user.dir") + BOOKS_CSV);
 
         try {
-            List<String> lines = Files.readAllLines(csvFilePath, StandardCharsets.UTF_8);
+            var lines = Files.readAllLines(csvFilePath, StandardCharsets.UTF_8);
 
             lines.stream().forEach(line -> {
                 String[] split = line.split(",");
@@ -37,10 +39,18 @@ public class BookCSVDataSource implements IBookDataSource {
                         Integer.parseInt(split[POSITION_PRICE]));
                 books.add(book);
             });
-
+            return books;
         } catch (IOException | NumberFormatException e) {
             throw new RuntimeException("Could not read the file CSV");
         }
-        return books;
+    }
+
+    @Override
+    public Optional<Book> getBooks(String title) {
+        var books = getBooks();
+        return books.stream().filter(book -> book.getTitle().contains(title)).findFirst();
     }
 }
+
+// Remove test
+//books.removeIf(b -> {return b.getTitle().equalsIgnoreCase("Data Mining Handbook");});

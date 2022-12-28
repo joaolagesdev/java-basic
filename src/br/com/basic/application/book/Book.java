@@ -1,5 +1,7 @@
 package br.com.basic.application.book;
 
+import java.util.Objects;
+
 public abstract class Book {
 
     public Book(String title, String author, String publishingCompany, double price, int pages) {
@@ -30,6 +32,19 @@ public abstract class Book {
 
     public String getPublishingCompany() {
         return publishingCompany;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(title, book.title) && Objects.equals(author, book.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, author);
     }
 
     public double getPrice() {

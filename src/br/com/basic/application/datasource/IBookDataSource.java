@@ -3,6 +3,7 @@ package br.com.basic.application.datasource;
 import br.com.basic.application.book.Book;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @version 1.0
@@ -17,4 +18,5 @@ public interface IBookDataSource {
      * @return java.util.List @see br.com.basic.application.book.Book
      */
     List<Book> getBooks();
+    Optional<Book> getBooks(final String title);
 }
